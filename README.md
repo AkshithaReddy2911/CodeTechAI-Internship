@@ -72,3 +72,25 @@ severe_toxic 0.30 0.81 0.44 321 obscene 0.73 0.87 0.79 1715 threat 0.30 0.76 0.4
 micro avg       0.59      0.85      0.70      7074
 macro avg       0.48      0.81      0.59      7074
 weighted avg 0.63 0.85 0.72 7074 samples avg 0.06 0.08 0.07 7074
+
+
+
+Problem: Predict the next day's closing price of RELIANCE using the previous 60 days of closing prices.
+
+Dataset: NIFTY-50 Stock Market Data (2000-2021) from Kaggle: https://www.kaggle.com/datasets/rohanrao/nifty50-stock-market-data (The dataset is not included in this repo because of its size.)
+
+Approach:
+
+Used the Close price of RELIANCE
+Split the data by time: 80% training, 20% testing (no shuffling)
+Scaled the data with MinMaxScaler (fitted on training data only)
+Created sequences of 60 days to predict the next day
+Built a 2-layer LSTM model with Dropout and EarlyStopping
+Compared the results with a naive baseline (tomorrow's price = today's price)
+Results: LSTM RMSE: 78.83 | MAE: 48.00 | MAPE: 3.76% Naive baseline RMSE: 37.91
+
+**CONCLUSION **: Overall project is completed with succesfull results.with all the outputs graph..which is represented in the ipynb file.
+
+Tools used: Python, Pandas, NumPy, Scikit-learn, TensorFlow/Keras, Matplotlib
+
+File: stock_price_forecasting_nifty50.ipynb
